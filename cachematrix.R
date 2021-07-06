@@ -1,35 +1,38 @@
-##Input 'x' as a matrix
-##There are two functions makeCacheMatrix,CacheMatrix
-##The function makeCacheMatrix contains set, get, setinverse, getinverse
+##Input first the'x' as a matrix
+##Then set "sv" as a null
+##And change every reference "inverse" to "solvevalue"
+##There are two functions makeCacheMatrix,makeCacheMatrix
+##The function makeCacheMatrix contains set, get, setsolvevalue, getsolvevalue
 makeCacheMatrix <- function(x = matrix()) {
-  inv <- NULL
+  sv <- NULL
   set <- function(y){
     x <<- y
-    ##initializing inverse as NULL
-    inv <<- NULL
+    ##initializing solved value as NULL
+    sv <<- NULL
   }
   ##this function will get the matrix 'x' 
   get <- function() {x}
-  setinverse <- function(inverse) {inv <<- inverse}
-  getinverse <- function() {inv}
-  list(set = set, get = get, setinverse = setinverse, getinverse = getinverse)
+  setsolvevalue <- function(solvevalue) {sv <<- solvevalue}
+  getsolvevalue <- function() {sv}
+  list(set = set, get = get, setsolvevalue = setsolvevalue, getsolvevalue = getsolvevalue)
 }
 
+## Do the same procedure changing every "inverse" to "solvevalue"
 ##this function will solve the cache data
-cacheSolve <- function(x, ...) {
-  inv <- x$getinverse()
+cacheSolveValue <- function(x, ...) {
+  sv <- x$getsolvevalue()
   ##this function will determine whether the inverse is null
-  if(!is.null(inv)) {
+  if(!is.null(sv)) {
     message("getting cached data")
-    ##this will return the inverse value
-    return(inv)
+    ##this will return the solved value
+    return(sv)
   }
   mat <- x$get()
-  ##this is used to solve the inverse value
-  inv <- solve(mat, ...)
-  x$setinverse(inv)
-  ##this will return the matrix of the inverse of the 'x'
-  inv
+  ##this is used to solve the solved value
+  sv <- solve(mat, ...)
+  x$setsolvevalue(sv)
+  ##this will return the matrix of the solved value of the 'x'
+  sv
 }
 
 ## ---------------To Check the Program------------------------
