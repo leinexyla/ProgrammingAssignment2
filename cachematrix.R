@@ -1,3 +1,5 @@
+##There are two functions makeCachematrix,makeCachematrix
+##makeCacheMatrix consists of set,get,setinv,getinv
 makeCacheMatrix <- function(x = matrix()) {
   inv <- NULL
   set <- function(y){
