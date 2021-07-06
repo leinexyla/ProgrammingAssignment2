@@ -1,3 +1,4 @@
+##Input 'x' as a matrix
 ##There are two functions makeCacheMatrix,CacheMatrix
 ##The function makeCacheMatrix contains set, get, setinverse, getinverse
 makeCacheMatrix <- function(x = matrix()) {
