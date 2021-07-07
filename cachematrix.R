@@ -21,7 +21,7 @@ makeCacheMatrix <- function(x = matrix()) {
 ##this function will solve the cache data
 cacheSolveValue <- function(x, ...) {
   sv <- x$getsolvevalue()
-  ##this function will determine whether the inverse is null
+  ##this function will determine whether the solved value is null
   if(!is.null(sv)) {
     message("getting cached data")
     ##this will return the solved value
